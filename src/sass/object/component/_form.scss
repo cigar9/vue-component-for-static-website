@@ -1,0 +1,329 @@
+@charset "UTF-8";
+// ---------------------------------------------------------------
+//  ※ラジオボタンとチェックボックスのデフォルトスタイルを削除する※
+// ---------------------------------------------------------------
+input[type=radio],
+input[type=checkbox] {
+  display: none;
+}
+
+// ---------------------------------------------------------------
+//  input
+// ---------------------------------------------------------------
+.c-input {
+  border: 1px solid $color-gray;
+  transition: border-color .6s $ease-easeOut;
+  padding: .5em .8em;
+  &:focus {
+    border-color: darken($color-gray, 30%);
+  }
+  &.-size_full {
+    width: 100%;
+    height: 100%;
+  }
+  &.-size_large {
+    height: 60px;
+    width: 100%;
+    @include mqSm {
+      height: 36px;
+    }
+  }
+  &.-size_medium {
+    height: 40px;
+    width: 100%;
+  }
+  &.-size_small {
+    height: 36px;
+    width: 100%;
+  }
+}
+
+// ---------------------------------------------------------------
+//  textarea
+// ---------------------------------------------------------------
+.c-textarea {
+  @extend .c-input;
+  resize: vertical;
+  width: 100%;
+  min-height: 10em;
+}
+
+// ---------------------------------------------------------------
+//  select
+// ---------------------------------------------------------------
+.c-select-wrap {
+  position: relative;
+  display: block;
+  min-height: 32px;
+  &:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border: solid transparent;
+    border-width: 5px 5px 0 5px;
+    border-top-color: $color-theme;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -2px;
+    pointer-events: none;
+  }
+}
+
+.c-select {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: 1px solid $color-gray;
+  padding: .29em .8em;
+  transition: border-color .6s $ease-easeOut;
+  cursor: pointer;
+  background: #fff;
+  &:focus {
+    border-color: darken($color-gray, 30%);
+  }
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+// ---------------------------------------------------------------
+//  radio
+// ---------------------------------------------------------------
+.c-radio {
+  position: relative;
+  display: inline-block;
+  padding: 0 5px 0 20px;
+  vertical-align: middle;
+  cursor: pointer;
+  &:before,
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    margin-top: -10px;
+    width: 16px;
+    height: 16px;
+    content: '';
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  &:after {
+    width: 8px;
+    height: 8px;
+    left: 4px;
+    margin-top: -6px;
+    border: none;
+    transition: background .1s $ease-easeOut;
+    input[type=radio]:checked+& {
+      background: $color-theme;
+    }
+  }
+}
+
+.c-radioList {
+  -js-display: flex;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  &_item {
+    margin-right: 25px;
+    line-height: 2.0;
+    @include mqSm {
+      margin-right: 12px;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+// ---------------------------------------------------------------
+//  check
+// ---------------------------------------------------------------
+.c-checkbox {
+  transition: background-color 0.2s $ease-easeOut;
+  position: relative;
+  display: inline-block;
+  padding: 5px 5px 5px 33px;
+  vertical-align: middle;
+  cursor: pointer;
+  &:after {
+    transition: border-color 0.2s $ease-easeOut;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    margin-top: -10px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    content: '';
+    border-radius: 2px;
+    background: #fff;
+    input[type=checkbox]:checked+& {
+      border-color: darken(#000, 10%);
+    }
+  }
+  &:before {
+    transition: opacity 0.2s $ease-easeOut;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    display: block;
+    margin-top: -9px;
+    width: 9px;
+    height: 14px;
+    border-right: 3px solid $color-theme;
+    border-bottom: 3px solid $color-theme;
+    content: '';
+    opacity: 0;
+    transform: rotate(45deg);
+    z-index: 1;
+    input[type=checkbox]:checked+& {
+      opacity: 1;
+    }
+  }
+  &--itself {
+    padding: 0;
+    width: 20px;
+  }
+}
+
+.c-checkList {
+  -js-display: flex;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  &_item {
+    margin-right: 25px;
+    line-height: 2.0;
+    @include mqSm {
+      margin-right: 12px;
+    }
+    &:last-child {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// ---------------------------------------------------------------
+//  file
+// ---------------------------------------------------------------
+.c-file {
+  position: relative;
+  .c-file_label {
+    -js-display: flex;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 40px;
+  }
+  &_data {
+    display: none;
+  }
+  &_btn {
+    margin-right: 15px;
+    width: 120px;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    >span {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      &:before {
+        display: none;
+      }
+    }
+  }
+  &_txt {
+    width: 100%;
+    flex: 1;
+    pointer-events: none;
+    height: 100%;
+  }
+  &_delete {
+    width: 30px;
+    height: 30px;
+    flex: none;
+    background: $color-theme-light;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    cursor: pointer;
+    transition: background .6s $ease-easeOut;
+    border: 1px solid transparent;
+    &:before {
+      content: '\e870';
+      font-family: 'icomoon';
+      color: #fff;
+      @include fontSize(1.6);
+      font-weight: bold;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: color .6s $ease-easeOut;
+    }
+    .hover &:hover {
+      background: darken($color-theme-light, 7%);
+    }
+  }
+}
+
+// ---------------------------------------------------------------
+//  Btn Box
+// ---------------------------------------------------------------
+.c-formBtnBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &_item {
+    flex: 1;
+    margin-right: 30px;
+    @include mqSm {
+      margin-right: 15px;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &--primary {
+      flex: 2;
+    }
+  }
+}
+
+// ---------------------------------------------------------------
+//  Error
+// ---------------------------------------------------------------
+.c-formError {
+  padding: 15px;
+  border: 1px solid $color-red;
+  margin-bottom: 30px;
+  &_item {
+    color: $color-red;
+    position: relative;
+    padding-left: 15px;
+    line-height: 2.0;
+    &:before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: $color-red;
+      border-radius: 50%;
+      position: absolute;
+      top: 10px;
+      left: 0;
+    }
+  }
+}

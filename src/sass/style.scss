@@ -1,0 +1,105 @@
+@charset 'UTF-8';
+
+/**
+ * FOUNDATION（プロジェクトの基礎スタイルや、変数・mixinなど）
+ * variables............プロジェクト全体を通して使用される変数です。
+ * mixin................プロジェクト全体を通して使用されるmixin集です。
+ * animation............プロジェクト全体で複数回使用されるアニメーションのKeyframeです。
+ * reset................リセットCSS（html5doctor）です。殆ど全ての初期スタイルを消しているので、必要に応じて書き換えてください。
+ * fonts................Webフォントやアイコンフォントを格納しています。
+ * vendor...............外部のプラグインやライブラリ用のCSSを格納しています。
+ * vendor-mod...........vendorのスタイルに上書きする用です。
+ * base.................プロジェクト全体に関わるスタイル（bodyや要素セレクタなど）を設定しています。
+ *
+ * LAYOUT（ページ内の大きなレイアウトに対するスタイル）
+ * header...............ヘッダーエリアのコンテナブロックのスタイルを指定します。
+ * footer...............フッターエリアのコンテナブロックのスタイルを指定します。
+ * main.................メインエリアのコンテナブロックのスタイルを指定します。
+ *
+ * COMPONENT（他プロジェクトでも再利用できるもの）
+ * form.................フォーム関連パーツ（input, textareaなど）のスタイルです。
+ * btn..................ボタンのスタイルです。
+ * list.................リストのスタイルです。
+ * grid.................グリッドレイアウトのスタイルです。
+ * blockquote...........引用文のスタイルです。
+ * copyright............コピーライト表記のスタイルです。
+ * modal................モーダルウィンドウのスタイルです。
+ * in-view..............「js-in-view」用のスタイルです。初期状態と発火後のスタイルが設定されています。
+ *
+ * PROJECT（プロジェクト固有のスタイルを持つもの。そのページ内でしか使われないものなど。）
+ * container............プロジェクトの基本幅コンテナのスタイルです。max-Widthが設定されています。
+ * section..............プロジェクトのセクション要素のスタイルです。背景色やpaddingが設定されています。
+ *
+ *
+ * UTILITY（わずかなスタイル調整のためのもの。）
+ * align................字詰めの調整用スタイルです。
+ * clearfix.............clearfixの調整用スタイルです。
+ * float................floatの調整用スタイルです。
+ * font.................font調整用スタイルです。
+ * margin...............マージンの調整用スタイルです。
+ * blink................マウスhover時にblinkアニメを追加します。
+ * br...................レスポンシブサイトでの、改行の調整スタイルです。
+ * hide.................レスポンシブサイトでの、要素の表示・非表示調整用スタイルです。
+ */
+
+/* =========================================================
+ Foundation
+========================================================= */
+
+@import 'foundation/variables';
+@import 'foundation/mixin';
+@import 'foundation/animation';
+@import 'foundation/reset';
+@import 'foundation/fonts';
+@import 'foundation/vendor';
+@import 'foundation/vendor-mod';
+@import 'foundation/base';
+
+/* =========================================================
+ Layout
+========================================================= */
+
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/main';
+
+/* =========================================================
+ Object
+========================================================= */
+
+
+/* ---------------------------------------------------------
+ Component
+--------------------------------------------------------- */
+
+@import 'object/component/form';
+@import 'object/component/btn';
+@import 'object/component/list';
+//@import 'object/component/grid';
+// @import 'object/component/blockquote';
+@import 'object/component/copyright';
+// @import 'object/component/modal';
+@import 'object/component/in-view';
+
+/* ---------------------------------------------------------
+ Project
+--------------------------------------------------------- */
+@import 'object/project/container';
+@import 'object/project/section';
+@import 'object/project/tab';
+@import 'object/project/accordion';
+
+/* ---------------------------------------------------------
+ Utility
+--------------------------------------------------------- */
+
+@import 'object/utility/align';
+@import 'object/utility/clearfix';
+@import 'object/utility/float';
+@import 'object/utility/font';
+@import 'object/utility/margin';
+@import 'object/utility/blink';
+@import 'object/utility/br';
+@import 'object/utility/hide';
+
+

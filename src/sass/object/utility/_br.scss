@@ -1,0 +1,13 @@
+@charset "utf-8";
+.u-brSp {
+  display: none;
+  @include mqMd {
+    display: block;
+  }
+}
+
+.u-brPc {
+  @include mqMd {
+    display: none;
+  }
+}

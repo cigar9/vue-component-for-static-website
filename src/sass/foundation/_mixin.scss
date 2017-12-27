@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+// メディアクエリ （デスクトップファースト）
+// --------------------
+@mixin mqLg {
+  @media only screen and (max-width: $widthLg + px) {
+    @content;
+  }
+}
+
+@mixin mqMd {
+  @media only screen and (max-width: $widthMd + px) {
+    @content;
+  }
+}
+
+@mixin mqSm {
+  @media only screen and (max-width: $widthSm + px) {
+    @content;
+  }
+}
+
+// フォントサイズ(vw指定)
+// --------------------
+@function get_vw($size, $viewport:375) {
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw * 10;
+}
+
+// フォントサイズ
+// --------------------
+@mixin fontSize($sizeValue: ($font-size/10)) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: ($sizeValue * 1) + rem;
+  @include mqSm {
+    font-size: $sizeValue * 10px;
+    font-size: get_vw($sizeValue);
+  }
+}
+
+// 最大幅にパディングを足す
+// --------------------
+@mixin maxWidth($width) {
+  max-width: $width + $gutter-default*2;
+  padding-left: $gutter-default;
+  padding-right: $gutter-default;
+}
+
+// hover
+// --------------------
+@mixin hover {
+  .hover &:hover,
+  &.is-hover {
+    @content;
+  }
+}
+
+@mixin transition($property) {
+  transition: $property .6s $ease-easeOut;
+}

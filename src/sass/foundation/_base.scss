@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+html{
+  font-size:62.5%;
+}
+
+body {
+  color: $font-color;
+  @include fontSize($font-size);
+  font-family: $font-family;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+a,
+a:visited{
+  color: $link-color;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5{
+  line-height: $lineHeight-default;
+}
+
+img{
+  max-width:100%;
+}

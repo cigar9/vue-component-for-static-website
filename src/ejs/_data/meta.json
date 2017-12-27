@@ -1,0 +1,27 @@
+{
+  "default": {
+    "title": "ページのタイトル",
+    "description": "ページのデスクリプション",
+    "author": "サイトのオーナー",
+    "canonical": "ページのURL",
+    "twitterCard": "summary_large_image",
+    "twitterId": "@ツイッターID",
+    "ogImage": "/image/common/ogp.jpg",
+    "ogType": "article",
+    "siteName": "サイトの名前",
+    "fbPageUrl": "FacebookページのURL"
+  },
+
+  "home": {
+    "title": "トップページ",
+    "description": "トップページのデスクリプション",
+    "canonical": "http://example.com/",
+    "ogType": "website"
+  },
+
+  "about": {
+    "title": "ページタイトル｜サイト名",
+    "description": "下層ページのデスクリプション",
+    "canonical": "http://example.com/page/"
+  }
+}

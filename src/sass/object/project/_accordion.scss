@@ -1,0 +1,43 @@
+.p-accordion {
+  & ~ &{
+    margin-top: 1em;
+  }
+  &__btn {
+    @include fontSize(1.6);
+    color: $color-theme;
+    background: lighten($color-theme, 45%);
+    padding: 1em;
+    cursor: pointer;
+    position: relative;
+
+    &:after {
+      content: '';
+      border: solid transparent;
+      border-width: 6px 4px 0 4px;
+      border-top-color: $color-theme;
+      position: absolute;
+      right: 30px;
+      top: calc(50% - 3px);
+      @include transition(transform);
+    }
+    &.is-active {
+      &:after {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+  &__body {
+    background: #f5f5f5;
+    overflow: hidden;
+  }
+  &__content {
+    padding: 2em;
+  }
+}
+
+.accordion-enter-active {
+  transition: all 1s $ease-easeOut;
+}
+.accordion-leave-active {
+  transition: all 1s $ease-easeOut;
+}

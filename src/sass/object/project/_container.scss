@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.p-container {
+  @include maxWidth($width-default);
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  @include mqMd {
+    width: 100%;
+  }
+  > * ~ *{
+    margin-top: 4em;
+  }
+}
+
+.p-container--small{
+  @include maxWidth($width-small);
+  @include mqMd{
+    width: 100%;
+  }
+}

@@ -1,0 +1,37 @@
+<%
+var _default = json['default'];
+for ( var key in _default ) {
+  if ( typeof page[key] === 'undefined' ) {
+    page[key] = _default[key];
+  }
+}
+-%>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+<meta name="author" content="<%= page['author'] %>">
+<meta name="description" content="<%= page['description'] %>">
+<meta name="format-detection" content="telephone=no,address=no,email=no">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta name="twitter:card" content="<%= page['twitterCard'] %>">
+<meta name="twitter:site" content="<%= page['twitterId'] %>">
+<meta name="twitter:title" content="<%= page['title'] %>">
+<meta name="twitter:url" content="<%= page['canonical'] %>">
+<meta name="twitter:description" content="<%= page['description'] %>">
+<meta name="twitter:image:src" content="<%= page['ogImage'] %>">
+<meta property="og:title" content="<%= page['title'] %>">
+<meta property="og:type" content="<%= page['ogType'] %>">
+<meta property="og:site_name" content="<%= page['siteName'] %>">
+<meta property="og:url" content="<%= page['canonical'] %>">
+<meta property="og:image" content="<%= page['ogImage'] %>">
+<meta property="og:description" content="<%= page['description'] %>">
+<meta property="article:publisher" content="<%= page['fbPageUrl'] %>">
+
+<link rel="canonical" href="<%= page['canonical'] %>">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/style-add.css">
+
+<title><%= page['title'] %></title>

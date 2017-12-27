@@ -1,0 +1,6 @@
+@charset "utf-8";
+.u-blink{
+  .hover &:hover{
+    animation: blink .3s linear;
+  }
+}

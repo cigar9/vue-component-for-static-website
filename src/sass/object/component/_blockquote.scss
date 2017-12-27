@@ -1,0 +1,33 @@
+@charset "UTF-8";
+.c-blockquote {
+  background: $color-gray-light;
+  padding: 30px;
+  border: 1px solid $color-gray;
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  @include mqSm {
+    padding: 15px;
+  }
+  &:before {
+    content: "“";
+    font-size: 600%;
+    line-height: 1em;
+    font-family: "ＭＳ Ｐゴシック", sans-serif;
+    color: #ddd;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    z-index: -1;
+    @include mqSm {
+      left: 5px;
+      top: 5px;
+    }
+  }
+  &_ttl {
+    margin-bottom: 15px;
+  }
+  &_txt {
+    line-height: 1.7;
+  }
+}

@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+.u-hide-sm{
+  @include mqSm{
+    display: none;
+  }
+}
+
+.u-hide-md{
+  @include mqMd{
+    display: none;
+  }
+}
+

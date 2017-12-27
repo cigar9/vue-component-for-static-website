@@ -1,0 +1,32 @@
+@charset "UTF-8";
+.js-inView{
+  &.is-show{
+    opacity: 1;
+    transform: translate(0);
+    transition-property: opacity, transform;
+    transition-duration: 1.2s;
+    transition-timing-function: $ease-easeOut;
+  }
+}
+.js-inView-fadeInUp{
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.js-inView-fadeInLeft{
+  opacity: 0;
+  transform: translateX(-50px);
+}
+.js-inView-fadeInRight{
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.js-inView-popUp{
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+.-dl_short {
+  transition-delay: .3s;
+}

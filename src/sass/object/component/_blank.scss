@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.c-blank{
+  position: relative;
+  &:after{
+    content:'\e901';
+    font-family: 'icomoon';
+    color: $color-theme;
+    padding-left: 2px;
+
+    position: absolute;
+    // right: -20px;
+    // top: 0;
+  }
+}

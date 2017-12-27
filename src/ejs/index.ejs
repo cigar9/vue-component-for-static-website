@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+
+<head>
+<%-
+      include('common/_head', {
+        page: json['home']
+      })
+    %>
+</head>
+
+<body>
+<div id="app">
+  <%- include('common/_header', {path:'./'}) %>
+    <main class="l-main">
+      <div class="p-container">
+
+        <div>
+          <!-- ☆　タブ　☆ -->
+          <ul class="p-tab-menu">
+            <li class="p-tab-menu__item" @click="tabShow(1)" :class="{'is-active': isTabCurrent(1)}">メニュー1</li>
+            <li class="p-tab-menu__item" @click="tabShow(2)" :class="{'is-active': isTabCurrent(2)}">メニュー2</li>
+            <li class="p-tab-menu__item" @click="tabShow(3)" :class="{'is-active': isTabCurrent(3)}">メニュー3</li>
+          </ul>
+          <div class="p-tab-body">
+            <transition name="my-tab">
+              <section class="p-tab-body__item" v-if="current === 1" :key="1">
+                <h2>タブ1のタイトル</h2>
+                <p>タブ1のコンテンツ。</p>
+              </section>
+              <section class="p-tab-body__item" v-if="current === 2" :key="2">
+                <h2>タブ2のタイトル</h2>
+                <p>タブ2のコンテンツ。</p>
+              </section>
+              <section class="p-tab-body__item" v-if="current === 3" :key="3">
+                <h2>タブ3のタイトル</h2>
+                <p>タブ3のコンテンツ。</p>
+              </section>
+            </transition>
+          </div>
+        </div>
+          
+        <div>
+          <!-- ☆　アコーディオン　☆ -->
+          <dl class="p-accordion">
+            <dt class="p-accordion__btn" @click="accordionToggle(1)" :class="{'is-active': isAccordionCurrent(1)}">アコーディオン1を開く</dt>
+            <transition name="accordion" v-on:before-enter="onBeforeEnter" v-on:enter="onEnter" v-on:before-leave="onBeforeLeave" v-on:leave="onLeave">
+              <dd class="p-accordion__body" v-show="accordionCurrent.indexOf(1) >= 0">
+                <div class="p-accordion__content">
+                  <p>アコーディオン1の中身</p>
+                </div>
+              </dd>
+            </transition>
+          </dl>
+          <dl class="p-accordion">
+            <dt class="p-accordion__btn" @click="accordionToggle(2)" :class="{'is-active': isAccordionCurrent(2)}">アコーディオン2を開く</dt>
+            <transition name="accordion" v-on:before-enter="onBeforeEnter" v-on:enter="onEnter" v-on:before-leave="onBeforeLeave" v-on:leave="onLeave">
+              <dd class="p-accordion__body" v-show="accordionCurrent.indexOf(2) >= 0">
+                <div class="p-accordion__content">
+                  <p>アコーディオン2の中身</p>
+                </div>
+              </dd>
+            </transition>
+          </dl>
+          <dl class="p-accordion">
+            <dt class="p-accordion__btn" @click="accordionToggle(3)" :class="{'is-active': isAccordionCurrent(3)}">アコーディオン3を開く</dt>
+            <transition name="accordion" v-on:before-enter="onBeforeEnter" v-on:enter="onEnter" v-on:before-leave="onBeforeLeave" v-on:leave="onLeave">
+              <dd class="p-accordion__body" v-show="accordionCurrent.indexOf(3) >= 0">
+                <div class="p-accordion__content">
+                  <p>アコーディオン3の中身</p>
+                </div>
+              </dd>
+            </transition>
+          </dl>
+        </div>
+
+    </main>
+    <%- include('common/_footer', {path:'./'}) %>
+</div>
+<%- include('common/_js-common', {path:'./'}) %>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data () {
+        return {
+          current: 1,
+          accordionCurrent: []
+        }
+      },
+      methods: {
+        tabShow: function (id) {
+          this.current = id;
+        },
+        isTabCurrent: function (id) {
+          return this.current == id;
+        },
+        accordionToggle: function (id) {
+          const array = this.accordionCurrent;
+          if(array.indexOf(id) == -1){
+            array.push(id);
+          } else {
+            for(i = 0; i < array.length; i++){
+              if(array[i] == id){
+                array.splice(i, 1);
+              }
+            }
+          }
+        },
+        isAccordionCurrent : function (id) {
+          return this.accordionCurrent.indexOf(id) >= 0;
+        },
+        onBeforeEnter: function (el) {
+          el.style.height = 0;
+        },
+        onEnter: function (el) {
+          el.style.height = el.scrollHeight + 'px';
+        },
+        onBeforeLeave: function (el) {
+          el.style.height = el.scrollHeight + 'px';
+        },
+        onLeave: function (el) {
+          el.style.height = 0;
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+.c-grid {
+  &_row {
+    &:last-of-type {
+      .c-grid_item {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &_item{
+    // -js-display:flex;
+    // display:flex;
+    // flex-direction:column;
+    // > * {
+    //   width: 100%;
+    //   align-self:stretch;
+    // }
+    & ~ &{
+      @include mqSm{
+        margin-top:15px;
+      }
+    }
+  }
+}
+
+.c-grid--between{
+  .c-grid_row{
+    justify-content:space-between;
+    > *{
+      flex:none!important;
+      margin-left:0!important;
+      margin-right:0!important;
+    }
+  }
+}
+
+$gutter-col2: 30px;
+.c-grid--col2{
+  .c-grid_row{
+    @include grid($gutter: $gutter-col2, $grid-type: margin-offset);
+    @include mqSm{
+      display:block;
+    }
+  }
+  .c-grid_item{
+    @include grid-col($col: 6, $gutter: $gutter-col2, $grid-type: margin-offset);
+    // flex-grow:0;
+    // flex-shrink:0;
+    // flex-basis:calc(50% - 15px);
+    display:flex;
+    > * {
+      width: 100%;
+    }
+    @include mqSm{
+      margin-left:0;
+      margin-right:0;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+$gutter-col3: 15px;
+.c-grid--col3{
+  .c-grid_row{
+    @include grid($gutter: $gutter-col3, $grid-type: margin-offset);
+    @include mqSm{
+      display:block;
+    }
+  }
+  .c-grid_item{
+    @include grid-col($col: 4, $gutter: $gutter-col3, $grid-type: margin-offset);
+    @include mqSm{
+      margin:10px 0 0;
+    }
+  }
+}

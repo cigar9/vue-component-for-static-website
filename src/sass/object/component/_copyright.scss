@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+.c-copyright {
+  @include fontSize(1.2);
+  @include mqSm {
+    @include fontSize($font-size-sp);
+  }
+}

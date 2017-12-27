@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+
+<head>
+    <%-
+      include('../common/_head', {
+        page: json['about']
+      })
+    %>
+</head>
+
+<body>
+<%- include('../common/_header', {path:'./'}) %>
+  <main class="l-main">
+    <p>コンテンツ</p>
+  </main>
+  <!-- /main -->
+  <%- include('../common/_footer', {path:'./'}) %>
+    <%- include('../common/_js-common', {path:'./'}) %>
+</body>
+
+</html>
