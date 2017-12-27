@@ -1,10 +1,19 @@
 @charset "UTF-8";
 
 .p-section {
-  padding: 60px 0;
-  @include mqMd {
-    padding: 40px 0;
+  &__ttl{
+    @include fontSize(1.8);
+    font-weight: bold;
+    letter-spacing: .1em;
+    margin-bottom: 1em;
+    color: $color-theme;
+    border-bottom: 1px solid lighten($color-theme, 40%);
+    padding-bottom: .5em;
   }
+  // padding: 60px 0;
+  // @include mqMd {
+  //   padding: 40px 0;
+  // }
 }
 
 .p-section--gray {

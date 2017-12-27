@@ -11,11 +11,12 @@
 
 <body>
 <div id="app">
-  <%- include('common/_header', {path:'./'}) %>
+  
     <main class="l-main">
       <div class="p-container">
 
-        <div>
+        <div class="p-section">
+          <p class="p-section__ttl">タブのやつ</p>
           <!-- ☆　タブ　☆ -->
           <ul class="p-tab-menu">
             <li class="p-tab-menu__item" @click="tabShow(1)" :class="{'is-active': isTabCurrent(1)}">メニュー1</li>
@@ -40,7 +41,8 @@
           </div>
         </div>
           
-        <div>
+        <div class="p-section">
+          <p class="p-section__ttl">アコーディオンのやつ</p>
           <!-- ☆　アコーディオン　☆ -->
           <dl class="p-accordion">
             <dt class="p-accordion__btn" @click="accordionToggle(1)" :class="{'is-active': isAccordionCurrent(1)}">アコーディオン1を開く</dt>
@@ -72,6 +74,24 @@
               </dd>
             </transition>
           </dl>
+        </div>
+
+        <div class="p-section">
+          <p class="p-section__ttl">カルーセルスライダー</p>
+          <p>jQueryのプラグインのほうが充実してる。</p>
+        </div>
+
+        <div class="p-section">
+          <p class="p-section__ttl">スムーススクロール</p>
+          <p>jQueryのプラグインのほうが充実してる。</p>
+        </div>
+
+        <div class="p-section">
+          <p class="p-section__ttl">結論</p>
+          <p>よくサンプルである「＋」押したらリストが増えるとか消えるとか、inputのデータをバインドするとか、検索結果ワードの絞り込みをするとか、ふっつーのコーポレートサイトを作るときには正直必要ない。</p>
+          <p>せいぜいJSが絡むのはカルーセルとか、タブとかアコーディオンとか、モーダルくらいなものなので、ものによってはVueでやる方が融通が効かなかったり面倒くさかったりする。（自分の実力不足によるところも大きいですが）</p>
+          <p>よくある静的サイトにあるやつでVueが輝きはじめるのは、「ブログの一覧記事を他所からひっぱってきてフィルタリングする」とか、「レスポンシブサイトのメガドロップダウンメニューで、ウィンドウ幅によって挙動をほぼ全く変える」くらいしか今のところは思い浮かばない。状態をdataで見やすく保存できるの便利ですよね。</p>
+          <p>新しいものを使わないとイケてない！まだjQuery使ってるの！？みたいな風潮も理解できるけど、必要のないところで無理に使う必要は無いなと思った。</p>
         </div>
 
     </main>
